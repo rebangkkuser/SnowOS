@@ -75,6 +75,7 @@ case "$1" in
 	 echo "SnowOS Package (manager) 1.0"
 	 echo "spkg-get COMMAND OPTIONS"
 	 echo "spkg-get install|remove|purge|update|upgrade|help|version|list|dry-run|autoremove|clean|autoclean|download"
+	  ;;
 	*)
 	 echo "spkg-get: Command not found!"
 	 echo "Maybe your SnowPKG version don't have this command."
