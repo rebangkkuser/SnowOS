@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # Copyright (c) 2026 SnowOS team and bangkkuser
-# All rights reserved.
-#
+# 
 # This is free software
 #
 # This program is free software: you can redistribute it and/or modify
