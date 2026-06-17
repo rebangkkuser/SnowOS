@@ -47,14 +47,14 @@ case "$1" in
 	purge|prg)
 	 apt-get purge "${@:2}"
 	  ;;
-	full-upgrade|fupg)
-	 apt-get full-upgrade
+	full-upgrade|fupg|dist-upgrade|dupg)
+	 apt-get dist-upgrade
 	  ;;
 	upgrade|upg)
 	 apt-get upgrade
 	  ;;
 	list|ls)
-	 apt-get list ${@:2}
+	 dpkg -l ${@:2}
 	  ;;
 	reinstall|rei|reins)
 	 apt-get install --reinstall ${@:2}
@@ -69,10 +69,10 @@ case "$1" in
 	 apt-get autoclean
 	  ;;
 	version|--version|-V|V|v)
-	 echo "SnowOS Package (manager) version ${SPKG_VER}"
+	 echo "SnowOS Package (manager)-get version ${SPKG_VER}"
 	  ;;
 	help)
-	 echo "SnowOS Package (manager) 1.0"
+	 echo "SnowOS Package (manager)-get 1.0"
 	 echo "spkg-get COMMAND OPTIONS"
 	 echo "spkg-get install|remove|purge|update|upgrade|help|version|list|dry-run|autoremove|clean|autoclean|download"
 	  ;;
