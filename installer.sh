@@ -91,6 +91,13 @@ if [ "$(id -u)" -ne 0 ]; then
   echo -e "${RED}[CE] User is not root! Please run as root or with sudo!!${RESET}"
   exit 13
 fi
+echo -e "${BLUE}[*]${RESET} Checking if internet is available"
+if getent hosts google.com >/dev/null 2>&1; then
+  :
+else
+  echo -e "${RED}[CE]: Internet not found!${RESET}"
+  exit 1
+fi
 echo -e "${BLUE}[*]${RESET} Checking if /etc/os-release exists"
 if [ -f /etc/os-release ]; then
 	source /etc/os-release
