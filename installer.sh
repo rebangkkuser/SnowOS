@@ -106,7 +106,7 @@ else
 	exit 2
 fi
 case "$UBUNTU_CODENAME" in
-	26.04|resolute|resoluteracoon|racoon)
+	26.04|resolute|resoluteraccoon|raccoon)
 	 echo -e "${GREEN}[*]${RESET} System is Ubuntu LTS 26.04! Continuing"
 	 :
 	  ;;
