@@ -121,7 +121,9 @@ apt-get install -y python-is-python3
 echo -e "${BLUE}[*]${RESET} 2/10 | Installing Zsh (latest)"
 apt-get install -y zsh
 echo -e "${BLUE}[*]${RESET} 3/10 Changing the Shell to zsh"
-chsh -s /usr/bin/zsh
+if command -v zsh >/dev/null 2>&1; then
+  chsh -s "$(which zsh)"
+fi
 echo -e "${BLUE}[*]${RESET} 4/10 Installing git"
 apt-get install -y git
 echo -e "${BLUE}[*]${RESET} 5/10 Making symbolic link /usr/bin/git to /usr/bin/gt"
@@ -129,9 +131,9 @@ ln -sf /usr/bin/git /usr/bin/gt
 echo -e "${BLUE}[*]${RESET} 6/10 Installing curl"
 apt-get install -y curl
 echo -e "${BLUE}[*]${RESET} 7/10 Downloading file os-release from raw.githubusercontent.com"
-curl -L https://raw.githubusercontent.com/SnowOS-Linux/SnowOS/refs/heads/main/etc/os-release -o /etc/os-release
+curl -fsSL https://raw.githubusercontent.com/SnowOS-Linux/SnowOS/refs/heads/main/etc/os-release -o /etc/os-release
 echo -e "${BLUE}[*]${RESET} 8/10 Downloading file spkg from raw.githubusercontent.com"
-curl -L https://raw.githubusercontent.com/SnowOS-Linux/SnowOS/refs/heads/main/usr/bin/spkg -o /usr/bin/spkg
+curl -fsSL https://raw.githubusercontent.com/SnowOS-Linux/SnowOS/refs/heads/main/usr/bin/spkg -o /usr/bin/spkg
 chmod 755 /usr/bin/spkg
 echo -e "${BLUE}[*]${RESET} Please select a DE for your desktop"
 echo -e "${BOLD}Options${RESET}"
@@ -165,5 +167,5 @@ case "$de" in
 esac
 echo -e "${BLUE}[*]${RESET} 9/10  Downloading Snow Mountain wallpaper"
 mkdir -p /usr/share/backgrounds/SnowOS
-curl -L https://raw.githubusercontent.com/SnowOS-Linux/SnowOS/refs/heads/main/usr/share/backgrounds/SnowOS/SnowMountain.png -o /usr/share/backgrounds/SnowOS/SnowMountain.png
+curl -fsSL https://raw.githubusercontent.com/SnowOS-Linux/SnowOS/refs/heads/main/usr/share/backgrounds/SnowOS/SnowMountain.png -o /usr/share/backgrounds/SnowOS/SnowMountain.png
 echo -e "${BLUE}[*]${RESET} 10/10 Finished!"
